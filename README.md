@@ -20,3 +20,4 @@ The design is simple enough that problems can be illustrated using pen and paper
 ![follow the line](bbr_whiteboard_example_2.jpg)
 
 ![find a place](bbr_whiteboard_example_3.jpg)
+
