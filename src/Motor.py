@@ -24,7 +24,7 @@ class Motor():
         print("want to set power")
         foo = self.servo.ChangeDutyCycle(8.0)
         print(str(foo))
-        return power
+        return "did it"
 
     def load_config(self):
         config = configparser.ConfigParser()
