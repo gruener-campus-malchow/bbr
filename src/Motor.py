@@ -8,10 +8,10 @@ class Motor():
     name = 'CENTER'
     pin = 1
     frequency = 50
-    forward_min = 6
-    forward_max = 7
-    backward_min = 8
-    backward_max = 9
+    forward_slow = 6
+    forward_fast = 7
+    backward_slow = 8
+    backward_fast = 9
     dutyCycle = 0
     steps = 0.05
     servo = True
