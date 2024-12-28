@@ -26,9 +26,9 @@ class Motor():
         print("power ist set to "+str(power))
         if power > 0:
             print("rotate forward")
-            forward_range = abs(self.forward_fast - self.forward_slow)
+            forward_range = abs(self.forward_slow - self.forward_fast)
             forward_steps = forward_range/100
-            dc = self.forward_slow + power * forward_steps
+            dc = self.forward_slow - power * forward_steps
         elif power <= 0:
             print("rotate backwards")
             backward_range = abs(self.backward_fast - self.backward_slow)
