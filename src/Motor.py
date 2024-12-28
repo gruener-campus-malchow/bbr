@@ -43,10 +43,10 @@ class Motor():
         config = configparser.ConfigParser()
         config.read('config.ini')
         self.pin = int(config[self.name]['pin'])
-        self.forward_min = float(config[self.name]['forward_slow'])
-        self.forward_max = float(config[self.name]['forward_fast'])
-        self.backward_min = float(config[self.name]['backward_slow'])
-        self.backward_max = float(config[self.name]['backward_fast'])
+        self.forward_slow = float(config[self.name]['forward_slow'])
+        self.forward_fast = float(config[self.name]['forward_fast'])
+        self.backward_slow = float(config[self.name]['backward_slow'])
+        self.backward_fast = float(config[self.name]['backward_fast'])
         self.frequency = int(config['GENERAL']['frequency'])
     
     def print_config(self):
