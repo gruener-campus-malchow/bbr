@@ -27,7 +27,7 @@ class Motor():
             forward_range = abs(self.forward_fast - self.forward_slow)
             forward_steps = forward_range/100
             dc = self.forward_slow + power * forward_steps
-        if power <= 0:
+        elif power <= 0:
             backward_range = abs(self.backward_fast - self.backward_slow)
             backward_steps = backward_range/100
             dc = self.backward_slow + abs(power) * backward_steps
