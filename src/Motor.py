@@ -22,12 +22,15 @@ class Motor():
     	pass
     	
     def set_power(self, power):
-        power = int(power) * self.direction
+        power = int(power)
+        print("power ist set to "+str(power))
         if power > 0:
+            print("rotate forward")
             forward_range = abs(self.forward_fast - self.forward_slow)
             forward_steps = forward_range/100
             dc = self.forward_slow + power * forward_steps
         elif power <= 0:
+            print("rotate backwards")
             backward_range = abs(self.backward_fast - self.backward_slow)
             backward_steps = backward_range/100
             dc = self.backward_slow + abs(power) * backward_steps
