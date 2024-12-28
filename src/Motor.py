@@ -51,7 +51,7 @@ class Motor():
 
         self.servo = GPIO.PWM(self.pin, self.frequency) # GPIO 18 als PWM mit 50Hz
         self.servo.start(8) # Initialisierung
-        return servo
+        return self.servo
         
 
     def increase(self):
