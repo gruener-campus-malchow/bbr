@@ -32,7 +32,7 @@ class Motor():
             dc = abs(power) * backward_steps
         print("hhhuuuhh: "+str(dc))
         if abs(power)>100:
-            print("Wrong power range: use an integer between -100 an 100)
+            print("Wrong power range: use an integer between -100 an 100")
             return False
 
         foo = self.servo.ChangeDutyCycle(8.0)
