@@ -11,22 +11,16 @@ motor_R = Motor('MOTOR_RIGHT')
 motor_R.load_config()
 motor_R.print_config()
 motor_Right = motor_R.initiate_servo()
-motor_R.set_power(motor_Right)
 
-input("sdfghjk")
+try:
+    while True:
+        power = input("set power level: ")
+        motor_R.set_power(power)
+        print("rotiere weiter für 5 Sekunden")
+        time.sleep(5)
 
-#try:
-#  while True:
-#    motor_R.increase()
-#    print("rotiere weiter für 5 Sekunden")
-#    time.sleep(5)
-#    motor_R.decrease()
-#    print("warte für 5 Sekunden")
-#    time.sleep(5)
-
-#except KeyboardInterrupt:
-#  servo.stop()
-# GPIO.cleanup()
-#    pass
+except KeyboardInterrupt:
+    servo.stop()
+    GPIO.cleanup()
 
 
