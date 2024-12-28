@@ -9,7 +9,7 @@ import time
 
 motor_R = Motor('MOTOR_RIGHT')
 motor_R.load_config()
-motor_R.print_config()
+#motor_R.print_config()
 motor_R.initiate_servo()
 motor_R.set_power(0.5)
 
