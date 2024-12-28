@@ -50,7 +50,8 @@ class Motor():
         GPIO.setup(self.pin, GPIO.OUT)
 
         self.servo = GPIO.PWM(self.pin, self.frequency) # GPIO 18 als PWM mit 50Hz
-        self.servo.start(8) # Initialisierung
+        self.servo.start(0) # Initialisierung
+        self.servo.ChangeDutyCycle(8)
         return self.servo
         
 
