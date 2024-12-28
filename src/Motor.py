@@ -37,7 +37,7 @@ class Motor():
     
     def print_config(self):
         print("name of the motor: " + self.name)
-        print("pin on the header: " + str(self.pin)
+        print("pin on the header: " + str(self.pin))
         print("frequency of the pwm-signal: " + str(self.frequency))
         print("minimal dutycycle for rotating forward: " + str(self.forward_min))
         print("maximal dutycycle for rotating forward: " + str(self.forward_max))
