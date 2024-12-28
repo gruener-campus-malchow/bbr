@@ -22,7 +22,7 @@ class Motor():
     	
     def set_power(self, power):
         print(power)
-        self.servo.ChangeDutyCycle(5.5)
+        self.servo.ChangeDutyCycle(6.0)
         return power
 
     def load_config(self):
