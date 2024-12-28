@@ -28,21 +28,21 @@ class Motor():
     def load_config(self):
         config = configparser.ConfigParser()
         config.read('config.ini')
-        self.pin = config[self.name]['pin']
-        self.forward_min = config[self.name]['forward_min']
-        self.forward_max = config[self.name]['forward_max']
-        self.backward_min = config[self.name]['backward_min']
-        self.backward_max = config[self.name]['backward_max']
-        self.frequency = config['GENERAL']['frequency']
+        self.pin = int(config[self.name]['pin'])
+        self.forward_min = float(config[self.name]['forward_min'])
+        self.forward_max = float(config[self.name]['forward_max'])
+        self.backward_min = float(config[self.name]['backward_min'])
+        self.backward_max = float(config[self.name]['backward_max'])
+        self.frequency = int(config['GENERAL']['frequency'])
     
     def print_config(self):
         print("name of the motor: " + self.name)
-        print("pin on the header: " + self.pin)
-        print("frequency of the pwm-signal: " + self.frequency)
-        print("minimal dutycycle for rotating forward: " + self.forward_min)
-        print("maximal dutycycle for rotating forward: " + self.forward_max)
-        print("minimal dutycycle for rotating backward: " + self.backward_min)
-        print("maximal dutycycle for rotating backward: " + self.backward_max)
+        print("pin on the header: " + str(self.pin)
+        print("frequency of the pwm-signal: " + str(self.frequency))
+        print("minimal dutycycle for rotating forward: " + str(self.forward_min))
+        print("maximal dutycycle for rotating forward: " + str(self.forward_max))
+        print("minimal dutycycle for rotating backward: " + str(self.backward_min))
+        print("maximal dutycycle for rotating backward: " + str(self.backward_max))
 
     def initiate_servo(self):
         GPIO.setmode(GPIO.BCM)
@@ -50,7 +50,7 @@ class Motor():
 
         servo = GPIO.PWM(self.pin, self.frequency) # GPIO 18 als PWM mit 50Hz
         servo.start(0) # Initialisierung
-        this.servo=servo
+        this.servo = servo
 
     def increase(self):
         while self.dutyCycle < 9:
