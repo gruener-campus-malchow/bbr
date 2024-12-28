@@ -14,6 +14,7 @@ class Motor():
     backward_max = 9
     dutyCycle = 0
     steps = 0.05
+    servo
 
     def __init__(self, name):
     	self.name = name
@@ -21,6 +22,7 @@ class Motor():
     	
     def set_power(self, power):
         print(power)
+        this.servo.ChangeDutyCycle(6.5)
         return power
 
     def load_config(self):
@@ -48,16 +50,16 @@ class Motor():
 
         servo = GPIO.PWM(self.pin, self.frequency) # GPIO 18 als PWM mit 50Hz
         servo.start(0) # Initialisierung
-        return servo
+        this.servo=servo
 
-    def increase():
+    def increase(self):
         while self.dutyCycle < 9:
             self.dutyCycle = self.dutyCycle+self.steps
             print("Aktueller dutyCycle: "+str(self.dutyCycle))
             #servo.ChangeDutyCycle(dutyCycle)
             time.sleep(0.05)
 
-    def decrease():   
+    def decrease(self):   
         while self.dutyCycle > 7.2:
             self.dutyCycle = self.dutyCycle-self.steps
             print("Aktueller dutyCycle: "+str(self.dutyCycle))
