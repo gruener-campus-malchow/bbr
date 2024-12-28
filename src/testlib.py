@@ -8,6 +8,6 @@ import time
 #motor_L.print_config()
 
 
-motor_R = initiate_servo()
-set_power(motor_R)
+motor_R = Motor_lib.initiate_servo()
+Motor_lib.set_power(motor_R)
         
