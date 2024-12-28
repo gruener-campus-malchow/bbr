@@ -22,7 +22,7 @@ class Motor():
     	
     def set_power(self, servo):
         print(power)
-        foo = servo.ChangeDutyCycle(8.0)
+        foo = self.servo.ChangeDutyCycle(8.0)
         print(str(foo))
         return power
 
@@ -49,7 +49,7 @@ class Motor():
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.pin, GPIO.OUT)
 
-        servo = GPIO.PWM(self.pin, self.frequency) # GPIO 18 als PWM mit 50Hz
+        this.servo = GPIO.PWM(self.pin, self.frequency) # GPIO 18 als PWM mit 50Hz
         servo.start(0) # Initialisierung
         return servo
         
