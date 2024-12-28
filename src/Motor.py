@@ -15,13 +15,14 @@ class Motor():
     dutyCycle = 0
     steps = 0.05
     servo = True
+    direction = 1
 
     def __init__(self, name):
     	self.name = name
     	pass
     	
     def set_power(self, power):
-        power = int(power)
+        power = int(power) * self.direction
         if power > 0:
             forward_range = abs(self.forward_fast - self.forward_slow)
             forward_steps = forward_range/100
@@ -47,6 +48,7 @@ class Motor():
         self.forward_fast = float(config[self.name]['forward_fast'])
         self.backward_slow = float(config[self.name]['backward_slow'])
         self.backward_fast = float(config[self.name]['backward_fast'])
+        self.direction = int(config[self.name]['direction'])
         self.frequency = int(config['GENERAL']['frequency'])
     
     def print_config(self):
@@ -57,6 +59,7 @@ class Motor():
         print("dutycycle for rotating fast forward: " + str(self.forward_fast))
         print("dutycycle for rotating slow backward: " + str(self.backward_slow))
         print("dutycycle for rotating fast backward: " + str(self.backward_fast))
+        print("direction or orientation " + str(self.direction))
 
     def initiate_servo(self):
         GPIO.setmode(GPIO.BCM)
