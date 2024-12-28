@@ -25,17 +25,17 @@ class Motor():
         if power > 0:
             forward_range = abs(self.forward_fast - self.forward_slow)
             forward_steps = forward_range/100
-            dc = power * forward_steps
+            dc = self.forward_slow + power * forward_steps
         if power <= 0:
             backward_range = abs(self.backward_fast - self.backward_slow)
             backward_steps = backward_range/100
-            dc = abs(power) * backward_steps
+            dc = self.backward_slow + abs(power) * backward_steps
         print("hhhuuuhh: "+str(dc))
         if abs(power)>100:
             print("Wrong power range: use an integer between -100 an 100")
             return False
 
-        foo = self.servo.ChangeDutyCycle(8.0)
+        foo = self.servo.ChangeDutyCycle(dc)
         print(str(foo))
         return "did it"
 
