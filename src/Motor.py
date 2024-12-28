@@ -23,11 +23,11 @@ class Motor():
     def set_power(self, power):
         power = int(power)
         if power > 0:
-            forward_range = abs(forward.fast - forward.slow)
+            forward_range = abs(forward_fast - forward_slow)
             forward_steps = forward_range/100
             dc = power * forward_steps
         if power <= 0:
-            backward_range = abs(backward.fast - backward.slow)
+            backward_range = abs(backward_fast - backward_slow)
             backward_steps = backward_range/100
             dc = abs(power) * backward_steps
         print("hhhuuuhh: "+str(dc))
