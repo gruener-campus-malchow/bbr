@@ -14,7 +14,7 @@ class Motor():
     backward_max = 9
     dutyCycle = 0
     steps = 0.05
-    servo = true
+    servo = True
 
     def __init__(self, name):
     	self.name = name
