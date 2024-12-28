@@ -11,7 +11,7 @@ servo.start(0) # Initialisierung
 
 try:
   while True:
-    dutyCycle = real(input("Input dutycycle: "))
+    dutyCycle = float(input("Input dutycycle: "))
     print("Aktueller dutyCycle: "+str(dutyCycle))
     servo.ChangeDutyCycle(dutyCycle)
 except KeyboardInterrupt:
