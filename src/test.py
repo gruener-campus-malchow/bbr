@@ -13,6 +13,7 @@ motor_R.print_config()
 motor_Right = motor_R.initiate_servo()
 motor_R.set_power(motor_Right)
 
+input("sdfghjk")
 
 #try:
 #  while True:

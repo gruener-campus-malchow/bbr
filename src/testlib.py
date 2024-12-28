@@ -10,4 +10,5 @@ import time
 
 motor_R = Motor_lib.initiate_servo()
 Motor_lib.set_power(motor_R)
+wait = input("fooo");
         
