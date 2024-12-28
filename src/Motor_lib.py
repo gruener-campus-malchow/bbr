@@ -14,9 +14,9 @@ dutyCycle = 0
 steps = 0.05
 servo = True
 	
-def set_power(servo):
+def set_power(servo, dc):
     print("want to set power")
-    foo = servo.ChangeDutyCycle(8.0)
+    foo = servo.ChangeDutyCycle(dc)
     print(str(foo))
     return "did it"
 
