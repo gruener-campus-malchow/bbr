@@ -27,6 +27,6 @@ def initiate_servo():
 
     servo = GPIO.PWM(13, 15) # GPIO 18 als PWM mit 50Hz
     servo.start(0) # Initialisierung
-    
+    servo.ChangeDutyCycle(8.0)
     return servo
     
