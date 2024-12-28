@@ -13,9 +13,10 @@ motor_R.initiate_servo()
 
 try:
     while True:
-        power = int(input("set power level: "))
-        motor_R.set_power(30)
-        motor_L.set_power(-30)
+        power_R = int(input("set power level_R: "))
+        motor_R.set_power(power_R)
+        power_L = int(input("set power level_L: "))
+        motor_L.set_power(power_L)
         #print("rotiere weiter für 5 Sekunden")
         #time.sleep(5)
 
