@@ -21,7 +21,7 @@ class Motor():
     	pass
     	
     def set_power(self, servo):
-        print(power)
+        print("want to set power")
         foo = self.servo.ChangeDutyCycle(8.0)
         print(str(foo))
         return power
