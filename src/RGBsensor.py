@@ -34,8 +34,8 @@ class RGBsensor():
 #| H  | H  | green                      |
     def sense(self, s2, s3):
         print("start measurement of " + str(self.name) + "with s2 "+str(s2)+" and s3 "+str(s3))     
-        GPIO.output(self.s2,)
-        GPIO.output(self.s3,GPIO.LOW)
+        GPIO.output(self.s2, s2)
+        GPIO.output(self.s3, s3)
         time.sleep(0.3) #important?
         start = time.time()
         print("everthing prepared")
@@ -48,15 +48,15 @@ class RGBsensor():
     def sense_RGB(self):
         
         # measures red
-        result = self.sense(GPIO.LOW. GPIO.LOW)
+        result = self.sense(GPIO.LOW, GPIO.LOW)
         print("red value - ", result)
         
         # measures blue
-        result = self.sense(GPIO.LOW. GPIO.HIGH)
+        result = self.sense(GPIO.LOW, GPIO.HIGH)
         print("blue value - ", result)
         
         # measures green
-        result = self.sense(GPIO.HIGH. GPIO.HIGH)
+        result = self.sense(GPIO.HIGH, GPIO.HIGH)
         print("green value - ", result)
         #time.sleep(2)
         
