@@ -19,7 +19,7 @@ try:
         #result_R = sensor_R.sense_RGB()
         print(result_L)
         #print("LEFT [r,g,b]" + str(result_L) + "RIGHT [r,g,b]" + str(result_R))
-        #time.sleep(0.2)
+        time.sleep(0.2)
 
 except KeyboardInterrupt:
     #servo.stop()
