@@ -31,12 +31,15 @@ class RGBsensor():
 
     def sense_RGB(self):
         print("start measurement")
+        
         # measures red
         GPIO.output(self.s2,GPIO.LOW)
         GPIO.output(self.s3,GPIO.LOW)
         time.sleep(0.3) #important?
         start = time.time()
+        print("everthing prepareds")
         for impulse_count in range(self.NUM_CYCLES):
+            print("wait for signal")
             GPIO.wait_for_edge(self.signal, GPIO.FALLING)
         duration = time.time() - start      #seconds to run for loop
         red  = self.NUM_CYCLES / duration   #in Hz
