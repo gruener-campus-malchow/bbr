@@ -35,7 +35,7 @@ class RGBsensor():
             for impulse_count in range(self.NUM_CYCLES):
                 GPIO.wait_for_edge(self.signal, GPIO.FALLING)
             duration = time.time() - start      #seconds to run for loop
-            red  = NUM_CYCLES / duration   #in Hz
+            red  = self.NUM_CYCLES / duration   #in Hz
             #print("red value - ",red)
 
             GPIO.output(self.s2,GPIO.LOW)
@@ -45,7 +45,7 @@ class RGBsensor():
             for impulse_count in range(self.NUM_CYCLES):
                 GPIO.wait_for_edge(self.signal, GPIO.FALLING)
             duration = time.time() - start
-            blue = NUM_CYCLES / duration
+            blue = self.NUM_CYCLES / duration
             #print("blue value - ",blue)
 
             GPIO.output(self.s2,GPIO.HIGH)
@@ -55,7 +55,7 @@ class RGBsensor():
             for impulse_count in range(self.NUM_CYCLES):
                 GPIO.wait_for_edge(self.signal, GPIO.FALLING)
             duration = time.time() - start
-            green = NUM_CYCLES / duration
+            green = self.NUM_CYCLES / duration
             #print("green value - ",green)
             #time.sleep(2)
             
