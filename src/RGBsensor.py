@@ -4,6 +4,7 @@
 
 import RPi.GPIO as GPIO
 import time
+import configparser
 
 # should go into config
 
