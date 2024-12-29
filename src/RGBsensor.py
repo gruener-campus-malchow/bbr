@@ -76,7 +76,7 @@ class RGBsensor():
         self.NUM_CYCLES = int(config[self.name]['NUM_CYCLES'])
         
     def print_config(self):
-        print("pin of the s2-diode-selektor: " + self.s2)
-        print("pin of the s3-diode-selektor: " + self.s3)
-        print("pin of the sensor signal: " + self.signal)
-        print("Number of cycles used for each measurement: " + self.NUM_CYCLES)
+        print("pin of the s2-diode-selektor: " + str(self.s2))
+        print("pin of the s3-diode-selektor: " + str(self.s3))
+        print("pin of the sensor signal: " + str(self.signal))
+        print("Number of cycles used for each measurement: " + str(self.NUM_CYCLES))
