@@ -23,6 +23,7 @@ class RGBsensor():
     	self.name = name
 
     def initiate_sensor(self):
+        GPIO.cleanup()
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.signal,GPIO.IN, pull_up_down=GPIO.PUD_UP)
         GPIO.setup(self.s2,GPIO.OUT)
