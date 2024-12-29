@@ -11,7 +11,7 @@ try:
     while True:
         result = sensor.sense_RGB()
         print(result)
-        time.sleep(2)
+        time.sleep(0.2)
 
 except KeyboardInterrupt:
     #servo.stop()

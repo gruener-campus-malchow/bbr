@@ -59,7 +59,7 @@ class RGBsensor():
             #print("green value - ",green)
             #time.sleep(2)
             
-            return [red,green,blue]
+            return [int(red),int(green),int(blue)]
 
     def load_config(self):
         config = configparser.ConfigParser()
