@@ -19,7 +19,7 @@ class Motor():
 
     def __init__(self, name):
     	self.name = name
-    	pass
+    	
     	
     def set_power(self, power):
         power = int(power)

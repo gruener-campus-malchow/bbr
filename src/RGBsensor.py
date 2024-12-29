@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*- 
+
+# this code based on https://www.electronicshub.org/raspberry-pi-color-sensor-tutorial/
+
 import RPi.GPIO as GPIO
 import time
 
@@ -6,11 +9,15 @@ import time
 
 class RGBsensor():
 
+    name = "BORING"
     s2 = 23
     s3 = 24
     signal = 25
     NUM_CYCLES = 10 #think, this is number of timeslots waiting for good signal from sensor
-
+    
+    def __init__(self, name):
+    	self.name = name
+    
 
     def initiate_sensor(self):
         GPIO.setmode(GPIO.BCM)
@@ -53,3 +60,11 @@ class RGBsensor():
             
             return [red,green,blue]
 
+    def load_config(self):
+        config = configparser.ConfigParser()
+        config.read('config.ini')
+        #self.pin = int(config[self.name]['pin'])
+        
+    def print_config(self):
+    
+        print("comming soon")
