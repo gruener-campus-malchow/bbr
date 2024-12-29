@@ -10,7 +10,7 @@ sensor.initiate_sensor()
 try:
     while True:
         result = sensor.sense_RGB()
-        print result
+        print(result)
         time.sleep(2)
 
 except KeyboardInterrupt:
