@@ -4,6 +4,7 @@ import RPi.GPIO as GPIO
 #from exception import Exception
 
 GPIO.cleanup()
+time.sleep(1)
 
 sensor_L = RGBsensor('RGBSENSOR_LEFT')
 sensor_L.load_config()

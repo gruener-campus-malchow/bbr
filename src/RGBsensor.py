@@ -31,6 +31,7 @@ class RGBsensor():
 #| L  | H  | blue                       |
 #| H  | L  | clear (no filter on diode) |
 #| H  | H  | green                      |
+
     def sense(self, s2, s3):
         print("start measurement of " + str(self.name) + "with s2 "+str(s2)+" and s3 "+str(s3))     
         GPIO.output(self.s2, s2)
@@ -39,27 +40,27 @@ class RGBsensor():
         start = time.time()
         print("everthing prepared")
         for impulse_count in range(self.NUM_CYCLES):
-            print("wait for signal 500ms timeout")
-            GPIO.wait_for_edge(self.signal, GPIO.FALLING, timeout=500)
+            print("wait for signal 100ms timeout")
+            GPIO.wait_for_edge(self.signal, GPIO.FALLING, timeout=100)
         duration = time.time() - start      #seconds to run for loop
         return self.NUM_CYCLES / duration   #in Hz
 
     def sense_RGB(self):
         
         # measures red
-        result = self.sense(GPIO.LOW, GPIO.LOW)
-        print("red value - ", result)
+        result_r = self.sense(GPIO.LOW, GPIO.LOW)
+        print("red value - ", result_r)
         
         # measures blue
-        result = self.sense(GPIO.LOW, GPIO.HIGH)
-        print("blue value - ", result)
+        result_b = self.sense(GPIO.LOW, GPIO.HIGH)
+        print("blue value - ", result_b)
         
         # measures green
-        result = self.sense(GPIO.HIGH, GPIO.HIGH)
-        print("green value - ", result)
+        result_g = self.sense(GPIO.HIGH, GPIO.HIGH)
+        print("green value - ", result_g)
         #time.sleep(2)
         
-        return [int(red),int(green),int(blue)]
+        return [int(result_r),int(result_g),int(result_b)]
 
     def load_config(self):
         config = configparser.ConfigParser()
