@@ -33,8 +33,7 @@ class RGBsensor():
 #| H  | L  | clear (no filter on diode) |
 #| H  | H  | green                      |
     def sense(self, s2, s3):
-        print("start measurement of " + str(self.name))     
-
+        print("start measurement of " + str(self.name) + "with s2 "+str(s2)+" and s3 "+str(s3))     
         GPIO.output(self.s2,)
         GPIO.output(self.s3,GPIO.LOW)
         time.sleep(0.3) #important?
