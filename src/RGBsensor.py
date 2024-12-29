@@ -39,8 +39,8 @@ class RGBsensor():
         start = time.time()
         print("everthing prepareds")
         for impulse_count in range(self.NUM_CYCLES):
-            print("wait for signal")
-            GPIO.wait_for_edge(self.signal, GPIO.FALLING)
+            print("wait for signal 1000ms timeout")
+            GPIO.wait_for_edge(self.signal, GPIO.FALLING, timeout=1000)
         duration = time.time() - start      #seconds to run for loop
         red  = self.NUM_CYCLES / duration   #in Hz
         print("red value - ",red)
