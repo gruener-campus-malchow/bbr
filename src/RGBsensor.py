@@ -30,42 +30,42 @@ class RGBsensor():
         print("initiation of " + str(self.name) + " completed")
 
     def sense_RGB(self):
-            print("start measurement")
-            # measures red
-            GPIO.output(self.s2,GPIO.LOW)
-            GPIO.output(self.s3,GPIO.LOW)
-            time.sleep(0.3) #important?
-            start = time.time()
-            for impulse_count in range(self.NUM_CYCLES):
-                GPIO.wait_for_edge(self.signal, GPIO.FALLING)
-            duration = time.time() - start      #seconds to run for loop
-            red  = self.NUM_CYCLES / duration   #in Hz
-            print("red value - ",red)
-            
-            # measures blue
-            GPIO.output(self.s2,GPIO.LOW)
-            GPIO.output(self.s3,GPIO.HIGH)
-            time.sleep(0.3)
-            start = time.time() #important?
-            for impulse_count in range(self.NUM_CYCLES):
-                GPIO.wait_for_edge(self.signal, GPIO.FALLING)
-            duration = time.time() - start
-            blue = self.NUM_CYCLES / duration
-            print("blue value - ",blue)
-            
-            # measures green
-            GPIO.output(self.s2,GPIO.HIGH)
-            GPIO.output(self.s3,GPIO.HIGH)
-            time.sleep(0.3)#important?
-            start = time.time()
-            for impulse_count in range(self.NUM_CYCLES):
-                GPIO.wait_for_edge(self.signal, GPIO.FALLING)
-            duration = time.time() - start
-            green = self.NUM_CYCLES / duration
-            print("green value - ",green)
-            #time.sleep(2)
-            
-            return [int(red),int(green),int(blue)]
+        print("start measurement")
+        # measures red
+        GPIO.output(self.s2,GPIO.LOW)
+        GPIO.output(self.s3,GPIO.LOW)
+        time.sleep(0.3) #important?
+        start = time.time()
+        for impulse_count in range(self.NUM_CYCLES):
+            GPIO.wait_for_edge(self.signal, GPIO.FALLING)
+        duration = time.time() - start      #seconds to run for loop
+        red  = self.NUM_CYCLES / duration   #in Hz
+        print("red value - ",red)
+        
+        # measures blue
+        GPIO.output(self.s2,GPIO.LOW)
+        GPIO.output(self.s3,GPIO.HIGH)
+        time.sleep(0.3)
+        start = time.time() #important?
+        for impulse_count in range(self.NUM_CYCLES):
+            GPIO.wait_for_edge(self.signal, GPIO.FALLING)
+        duration = time.time() - start
+        blue = self.NUM_CYCLES / duration
+        print("blue value - ",blue)
+        
+        # measures green
+        GPIO.output(self.s2,GPIO.HIGH)
+        GPIO.output(self.s3,GPIO.HIGH)
+        time.sleep(0.3)#important?
+        start = time.time()
+        for impulse_count in range(self.NUM_CYCLES):
+            GPIO.wait_for_edge(self.signal, GPIO.FALLING)
+        duration = time.time() - start
+        green = self.NUM_CYCLES / duration
+        print("green value - ",green)
+        #time.sleep(2)
+        
+        return [int(red),int(green),int(blue)]
 
     def load_config(self):
         config = configparser.ConfigParser()
