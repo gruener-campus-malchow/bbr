@@ -25,4 +25,5 @@ except KeyboardInterrupt:
     #servo.stop()
     GPIO.cleanup()
 
-
+except: 
+    print ("Error occurred")
