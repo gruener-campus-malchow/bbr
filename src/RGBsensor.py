@@ -30,7 +30,7 @@ class RGBsensor():
         print("initiation of " + str(self.name) + " completed")
 
     def sense_RGB(self):
-    
+            print("start measurement")
             # measures red
             GPIO.output(self.s2,GPIO.LOW)
             GPIO.output(self.s3,GPIO.LOW)
