@@ -5,12 +5,7 @@ import RPi.GPIO as GPIO
 import time
 import configparser
 
-#| s3 | s4 | selected diode             |
-#|----|----|----------------------------|
-#| L  | L  | red                        |
-#| L  | H  | blue                       |
-#| H  | L  | clear (no filter on diode) |
-#| H  | H  | green                      |
+
 
 class RGBsensor():
 
@@ -29,44 +24,41 @@ class RGBsensor():
         GPIO.setup(self.s2,GPIO.OUT)
         GPIO.setup(self.s3,GPIO.OUT)
         print("initiation of " + str(self.name) + " completed")
+    
 
-    def sense_RGB(self):
-        print("start measurement of " + str(self.name))
-        
-        # measures red
-        GPIO.output(self.s2,GPIO.LOW)
+#| s2 | s3 | selected diode             |
+#|----|----|----------------------------|
+#| L  | L  | red                        |
+#| L  | H  | blue                       |
+#| H  | L  | clear (no filter on diode) |
+#| H  | H  | green                      |
+    def sense(self, s2, s3):
+        print("start measurement of " + str(self.name))     
+
+        GPIO.output(self.s2,)
         GPIO.output(self.s3,GPIO.LOW)
         time.sleep(0.3) #important?
         start = time.time()
-        print("everthing prepareds")
+        print("everthing prepared")
         for impulse_count in range(self.NUM_CYCLES):
-            print("wait for signal 1000ms timeout")
+            print("wait for signal 500ms timeout")
             GPIO.wait_for_edge(self.signal, GPIO.FALLING, timeout=500)
         duration = time.time() - start      #seconds to run for loop
-        red  = self.NUM_CYCLES / duration   #in Hz
-        print("red value - ",red)
+        return self.NUM_CYCLES / duration   #in Hz
+
+    def sense_RGB(self):
+        
+        # measures red
+        result = self.sense(GPIO.LOW. GPIO.LOW)
+        print("red value - ", result)
         
         # measures blue
-        GPIO.output(self.s2,GPIO.LOW)
-        GPIO.output(self.s3,GPIO.HIGH)
-        time.sleep(0.3)
-        start = time.time() #important?
-        for impulse_count in range(self.NUM_CYCLES):
-            GPIO.wait_for_edge(self.signal, GPIO.FALLING, timeout=500)
-        duration = time.time() - start
-        blue = self.NUM_CYCLES / duration
-        print("blue value - ",blue)
+        result = self.sense(GPIO.LOW. GPIO.HIGH)
+        print("blue value - ", result)
         
         # measures green
-        GPIO.output(self.s2,GPIO.HIGH)
-        GPIO.output(self.s3,GPIO.HIGH)
-        time.sleep(0.3)#important?
-        start = time.time()
-        for impulse_count in range(self.NUM_CYCLES):
-            GPIO.wait_for_edge(self.signal, GPIO.FALLING, timeout=500)
-        duration = time.time() - start
-        green = self.NUM_CYCLES / duration
-        print("green value - ",green)
+        result = self.sense(GPIO.HIGH. GPIO.HIGH)
+        print("green value - ", result)
         #time.sleep(2)
         
         return [int(red),int(green),int(blue)]
