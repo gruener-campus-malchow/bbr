@@ -1,6 +1,7 @@
 from RGBsensor import RGBsensor
 import time
 import RPi.GPIO as GPIO
+#from exception import Exception
 
 sensor_L = RGBsensor('RGBSENSOR_LEFT')
 sensor_L.load_config()
@@ -25,5 +26,5 @@ except KeyboardInterrupt:
     #servo.stop()
     GPIO.cleanup()
 
-except: 
-    print ("Error occurred")
+except Exception as foo: 
+    print ("Mysterious error occurred: ",foo)
